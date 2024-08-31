@@ -1,11 +1,12 @@
 import json
 import numpy as np
-from data_preparation import load_data
-from search_system import create_faiss_index, search_and_save_results
+from src.utils.file_io import load_data, rePath
+from src.search_system import create_faiss_index, search_and_save_results
 from sentence_transformers import SentenceTransformer
 
 if __name__ == "__main__":
     data = load_data('data/raw_annotation.json')
+    data = rePath(data, "/content/dataset/female/", "/content/NextStar-Search/data/nextstar_dataset/train_raw")
     embeddings = np.load('embeddings.npy')
 
     index = create_faiss_index(embeddings)
