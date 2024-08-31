@@ -1,8 +1,7 @@
 __pycache__/
 *.py[cod]
 
-data/
-
+*.json
 result/
 
 embeddings.npy
